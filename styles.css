@@ -98,12 +98,15 @@ body {
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
-    background: url('bartender.png') center/cover;
-    border: 2px solid var(--neon-purple);
-    box-shadow: 0 0 20px var(--neon-purple);
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .speech-bubble {
@@ -173,4 +176,39 @@ body {
 .drink-item:hover, .track:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Logo sizing */
+.logo {
+    margin-bottom: 2rem;
+    max-width: 300px;
+    width: 100%;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Drink images */
+.drink-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+.drink-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.drink-info {
+    flex: 1;
+    text-align: left;
 } 
