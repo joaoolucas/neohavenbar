@@ -299,4 +299,55 @@ body {
     font-size: 1.2rem;
     margin: 0.5rem 0;
     text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Social Media Icons */
+.social-links {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.social-icon.twitter:hover {
+    border-color: #1DA1F2;
+    color: #1DA1F2;
+    box-shadow: 0 0 15px #1DA1F2;
+}
+
+.social-icon.pumpfun {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.social-icon.pumpfun:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
 } 
