@@ -1,0 +1,171 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #ff00ff;
+    --neon-green: #39ff14;
+    --background: #0a0a0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.rain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent,
+        rgba(0, 243, 255, 0.1) 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    animation: rain 0.8s linear infinite;
+    opacity: 0.4;
+}
+
+.bar-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.holographic-menu {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.menu-item {
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-shadow: 0 0 10px var(--neon-blue);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-item:hover {
+    color: var(--neon-purple);
+    text-shadow: 0 0 20px var(--neon-purple);
+    transform: scale(1.1);
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover::after {
+    transform: scaleX(1);
+}
+
+.bartender {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: url('bartender.png') center/cover;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 20px var(--neon-purple);
+    border-radius: 50%;
+}
+
+.speech-bubble {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    max-width: 200px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent var(--neon-green) transparent transparent;
+}
+
+.section {
+    display: none;
+    text-align: center;
+}
+
+.section.active {
+    display: block;
+}
+
+.neon-text {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+    margin-bottom: 2rem;
+}
+
+@keyframes rain {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.drink-item, .track {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+.drink-item:hover, .track:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--neon-blue);
+} 
