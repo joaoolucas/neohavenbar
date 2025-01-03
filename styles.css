@@ -340,4 +340,82 @@ body {
     border-color: var(--neon-green);
     color: var(--neon-green);
     box-shadow: 0 0 15px var(--neon-green);
+}
+
+/* Effect Overlays */
+.effect-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeInOut 5s;
+}
+
+.effect-overlay.sunrise {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    mix-blend-mode: overlay;
+}
+
+.effect-overlay.matrix {
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    animation: matrixRain 5s linear infinite, fadeInOut 5s;
+}
+
+/* Neural Boost Effect */
+.neural-boost {
+    animation: enhancedVision 8s;
+}
+
+.neural-boost .neon-text,
+.neural-boost .menu-item,
+.neural-boost .price {
+    animation: pulseGlow 2s infinite !important;
+}
+
+/* Time Dilation Effect */
+.time-dilation * {
+    animation: slowMotion 10s !important;
+}
+
+/* Animations */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 0.8; }
+}
+
+@keyframes matrixRain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+@keyframes enhancedVision {
+    0%, 100% { filter: saturate(100%); }
+    50% { filter: saturate(200%) brightness(120%); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 10px currentColor; }
+    50% { text-shadow: 0 0 30px currentColor; }
+}
+
+@keyframes slowMotion {
+    0% { filter: blur(0); }
+    50% { filter: blur(1px); }
+    100% { filter: blur(0); }
+}
+
+@keyframes sunriseEffect {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
 } 

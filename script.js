@@ -43,13 +43,88 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }, 10000);
 
+    // Effects configuration
+    const effects = {
+        drinks: {
+            'Cyber Sunrise': {
+                duration: 5000,
+                effect: () => {
+                    document.body.style.animation = 'sunriseEffect 5s';
+                    const overlay = document.createElement('div');
+                    overlay.className = 'effect-overlay sunrise';
+                    document.body.appendChild(overlay);
+                    setTimeout(() => overlay.remove(), 5000);
+                }
+            },
+            'Neural Network': {
+                duration: 5000,
+                effect: () => {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'effect-overlay matrix';
+                    document.body.appendChild(overlay);
+                    setTimeout(() => overlay.remove(), 5000);
+                }
+            }
+        },
+        drugs: {
+            'Neural Boost': {
+                duration: 8000,
+                effect: () => {
+                    document.body.classList.add('neural-boost');
+                    const elements = document.querySelectorAll('.neon-text, .menu-item, .price');
+                    elements.forEach(el => el.style.animation = 'pulseGlow 2s infinite');
+                    setTimeout(() => {
+                        document.body.classList.remove('neural-boost');
+                        elements.forEach(el => el.style.animation = '');
+                    }, 8000);
+                }
+            },
+            'Time Dilation': {
+                duration: 10000,
+                effect: () => {
+                    document.body.classList.add('time-dilation');
+                    const elements = document.querySelectorAll('*');
+                    elements.forEach(el => {
+                        el.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                    });
+                    setTimeout(() => {
+                        document.body.classList.remove('time-dilation');
+                        elements.forEach(el => {
+                            el.style.transition = '';
+                        });
+                    }, 10000);
+                }
+            }
+        }
+    };
+
+    // Function to apply substance effects
+    const applyEffect = (substanceName, type) => {
+        const substance = effects[type][substanceName];
+        if (substance) {
+            substance.effect();
+            
+            // Update bartender message
+            const messages = {
+                drinks: `Enjoying that ${substanceName}? The effects should kick in soon...`,
+                drugs: `${substanceName} activated. Neural interfaces engaging...`
+            };
+            
+            setTimeout(() => {
+                const speechBubble = document.querySelector('.speech-bubble');
+                speechBubble.textContent = messages[type];
+            }, 1500);
+        }
+    };
+
     // Order system
     const orderBtns = document.querySelectorAll('.order-btn');
     orderBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const drinkItem = e.target.closest('.drink-item');
-            const drinkName = drinkItem.querySelector('h3').textContent;
+            const drinkItem = e.target.closest('.drink-item, .drug-item');
+            const itemName = drinkItem.querySelector('h3').textContent;
             const price = drinkItem.querySelector('.price').textContent;
+            const type = drinkItem.closest('section').id; // 'drinks' or 'drugs'
             
             // Change button state
             btn.textContent = 'Ordering...';
@@ -62,7 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Update bartender speech
                 const speechBubble = document.querySelector('.speech-bubble');
-                speechBubble.textContent = `Your ${drinkName} is being prepared! That'll be ${price}`;
+                speechBubble.textContent = `Your ${itemName} is being prepared! That'll be ${price}`;
+                
+                // Apply the effect
+                applyEffect(itemName, type);
                 
                 // Reset button after 3 seconds
                 setTimeout(() => {
