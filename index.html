@@ -10,6 +10,10 @@
     <div class="rain-overlay"></div>
     
     <main class="bar-container">
+        <div class="logo">
+            <img src="images/neohaven-logo.png" alt="NeoHaven">
+        </div>
+
         <nav class="holographic-menu">
             <div class="menu-item" data-section="drinks">Drinks</div>
             <div class="menu-item" data-section="music">Music</div>
@@ -17,22 +21,34 @@
         </nav>
 
         <div class="bartender">
-            <div class="avatar"></div>
+            <div class="avatar">
+                <img src="images/bartender.png" alt="Cyberpunk Bartender">
+            </div>
             <div class="speech-bubble">
                 Welcome to NeoHaven. What's your poison?
             </div>
         </div>
 
-        <section id="drinks" class="section">
+        <section id="drinks" class="section active">
             <h2 class="neon-text">Drinks Menu</h2>
             <div class="drink-list">
                 <div class="drink-item">
-                    <h3>Cyber Sunrise</h3>
-                    <p>A glowing mixture of synthetic citrus and binary boost</p>
+                    <img src="images/drink-1.png" alt="Cyber Sunrise">
+                    <div class="drink-info">
+                        <h3>Cyber Sunrise</h3>
+                        <p>A glowing mixture of synthetic citrus and binary boost</p>
+                        <div class="price">15 ¢</div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
                 </div>
                 <div class="drink-item">
-                    <h3>Neural Network</h3>
-                    <p>Digital dreams in liquid form</p>
+                    <img src="images/drink-2.png" alt="Neural Network">
+                    <div class="drink-info">
+                        <h3>Neural Network</h3>
+                        <p>Digital dreams in liquid form</p>
+                        <div class="price">18 ¢</div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -40,14 +56,51 @@
         <section id="music" class="section">
             <h2 class="neon-text">Tonight's Beats</h2>
             <div class="music-player">
-                <div class="track">Synthwave Nights</div>
-                <div class="track">Digital Rain</div>
+                <div class="track">
+                    <span class="track-name">Synthwave Nights</span>
+                    <div class="player-controls">
+                        <button class="play-btn">▶</button>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <span class="time">0:00</span>
+                    </div>
+                </div>
+                <div class="track">
+                    <span class="track-name">Digital Rain</span>
+                    <div class="player-controls">
+                        <button class="play-btn">▶</button>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <span class="time">0:00</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="about" class="section">
             <h2 class="neon-text">About The Bar</h2>
-            <p>Where digital dreams meet analog spirits...</p>
+            <div class="about-content">
+                <p>Where digital dreams meet analog spirits...</p>
+                <div class="features">
+                    <div class="feature">
+                        <i class="icon-hologram"></i>
+                        <h3>Holographic Entertainment</h3>
+                        <p>Live AI-powered performances nightly</p>
+                    </div>
+                    <div class="feature">
+                        <i class="icon-secure"></i>
+                        <h3>Secure Atmosphere</h3>
+                        <p>Neural firewall protection guaranteed</p>
+                    </div>
+                    <div class="feature">
+                        <i class="icon-synthetic"></i>
+                        <h3>Synthetic Spirits</h3>
+                        <p>Lab-grown ingredients for future taste</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
