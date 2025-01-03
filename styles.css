@@ -312,8 +312,8 @@ body {
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -322,7 +322,7 @@ body {
     border: 2px solid var(--neon-blue);
     color: var(--neon-blue);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
 }
@@ -341,9 +341,7 @@ body {
 }
 
 .social-icon.pumpfun {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 
 .social-icon.pumpfun:hover {
