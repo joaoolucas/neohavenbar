@@ -42,6 +42,84 @@ document.addEventListener('DOMContentLoaded', () => {
             speechBubble.style.opacity = '1';
         }, 500);
     }, 10000);
+
+    // Order system
+    const orderBtns = document.querySelectorAll('.order-btn');
+    orderBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const drinkItem = e.target.closest('.drink-item');
+            const drinkName = drinkItem.querySelector('h3').textContent;
+            const price = drinkItem.querySelector('.price').textContent;
+            
+            // Change button state
+            btn.textContent = 'Ordering...';
+            btn.disabled = true;
+            
+            // Simulate order processing
+            setTimeout(() => {
+                btn.textContent = 'Ordered!';
+                btn.classList.add('ordered');
+                
+                // Update bartender speech
+                const speechBubble = document.querySelector('.speech-bubble');
+                speechBubble.textContent = `Your ${drinkName} is being prepared! That'll be ${price}`;
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    btn.textContent = 'Order Now';
+                    btn.disabled = false;
+                    btn.classList.remove('ordered');
+                }, 3000);
+            }, 1500);
+        });
+    });
+
+    // Music player functionality
+    const playBtns = document.querySelectorAll('.play-btn');
+    const progressBars = document.querySelectorAll('.progress');
+    let activeTrack = null;
+
+    playBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const isPlaying = btn.textContent === '⏸';
+            
+            // Stop any currently playing track
+            if (activeTrack && activeTrack !== btn) {
+                activeTrack.textContent = '▶';
+                const activeProgress = activeTrack.closest('.track').querySelector('.progress');
+                activeProgress.style.width = '0%';
+            }
+
+            if (isPlaying) {
+                btn.textContent = '▶';
+                clearInterval(btn.dataset.interval);
+                activeTrack = null;
+            } else {
+                btn.textContent = '⏸';
+                activeTrack = btn;
+                let progress = 0;
+                const progressBar = btn.closest('.track').querySelector('.progress');
+                const timeDisplay = btn.closest('.track').querySelector('.time');
+                
+                btn.dataset.interval = setInterval(() => {
+                    progress += 0.5;
+                    if (progress > 100) {
+                        progress = 0;
+                        btn.textContent = '▶';
+                        clearInterval(btn.dataset.interval);
+                        activeTrack = null;
+                    }
+                    progressBar.style.width = `${progress}%`;
+                    
+                    // Update time display
+                    const totalSeconds = Math.floor((progress / 100) * 180); // 3 minutes = 180 seconds
+                    const minutes = Math.floor(totalSeconds / 60);
+                    const seconds = totalSeconds % 60;
+                    timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }, 50);
+            }
+        });
+    });
 });
 
 // Add glitch effect keyframes

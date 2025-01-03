@@ -211,4 +211,92 @@ body {
 .drink-info {
     flex: 1;
     text-align: left;
+}
+
+/* Order button styles */
+.order-btn {
+    background: var(--neon-blue);
+    color: var(--background);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.order-btn:hover {
+    background: var(--neon-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.order-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.order-btn.ordered {
+    background: var(--neon-green);
+}
+
+/* Music player styles */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.play-btn {
+    background: var(--neon-purple);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: var(--neon-purple);
+    transition: width 0.05s linear;
+}
+
+.time {
+    font-size: 0.8rem;
+    min-width: 45px;
+}
+
+.track-name {
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+/* Price display */
+.price {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 5px var(--neon-green);
 } 
