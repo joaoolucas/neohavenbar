@@ -373,7 +373,7 @@ body {
 
 /* Neural Boost Effect */
 .neural-boost {
-    animation: enhancedVision 8s;
+    animation: enhancedVision 8s infinite;
 }
 
 .neural-boost .neon-text,
@@ -399,13 +399,23 @@ body {
 }
 
 @keyframes enhancedVision {
-    0%, 100% { filter: saturate(100%); }
-    50% { filter: saturate(200%) brightness(120%); }
+    0%, 100% { 
+        filter: saturate(150%) brightness(110%);
+    }
+    50% { 
+        filter: saturate(300%) brightness(130%) hue-rotate(30deg);
+    }
 }
 
 @keyframes pulseGlow {
-    0%, 100% { text-shadow: 0 0 10px currentColor; }
-    50% { text-shadow: 0 0 30px currentColor; }
+    0%, 100% { 
+        text-shadow: 0 0 10px currentColor;
+        box-shadow: 0 0 10px currentColor;
+    }
+    50% { 
+        text-shadow: 0 0 30px currentColor, 0 0 40px currentColor;
+        box-shadow: 0 0 30px currentColor;
+    }
 }
 
 @keyframes slowMotion {
@@ -418,4 +428,23 @@ body {
     0% { filter: hue-rotate(0deg); }
     50% { filter: hue-rotate(180deg); }
     100% { filter: hue-rotate(360deg); }
+}
+
+.effect-overlay.neural-matrix {
+    background: 
+        linear-gradient(rgba(0, 255, 255, 0.1) 50%, transparent 50%),
+        linear-gradient(90deg, rgba(255, 0, 255, 0.1) 50%, transparent 50%);
+    background-size: 4px 4px;
+    animation: matrixScroll 20s linear infinite;
+    opacity: 0.3;
+    mix-blend-mode: screen;
+}
+
+@keyframes matrixScroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
 } 

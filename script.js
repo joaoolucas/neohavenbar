@@ -71,11 +71,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 8000,
                 effect: () => {
                     document.body.classList.add('neural-boost');
-                    const elements = document.querySelectorAll('.neon-text, .menu-item, .price');
+                    const elements = document.querySelectorAll('.neon-text, .menu-item, .price, .drug-item, .drink-item, .social-icon');
                     elements.forEach(el => el.style.animation = 'pulseGlow 2s infinite');
+                    
+                    // Enhance visual effects
+                    document.documentElement.style.setProperty('--neon-blue', '#00ffff');
+                    document.documentElement.style.setProperty('--neon-purple', '#ff00ff');
+                    document.documentElement.style.setProperty('--neon-green', '#50ff50');
+                    
+                    // Add matrix-like effect
+                    const matrixOverlay = document.createElement('div');
+                    matrixOverlay.className = 'effect-overlay neural-matrix';
+                    document.body.appendChild(matrixOverlay);
+                    
                     setTimeout(() => {
                         document.body.classList.remove('neural-boost');
                         elements.forEach(el => el.style.animation = '');
+                        document.documentElement.style.setProperty('--neon-blue', '#00f3ff');
+                        document.documentElement.style.setProperty('--neon-purple', '#ff00ff');
+                        document.documentElement.style.setProperty('--neon-green', '#39ff14');
+                        matrixOverlay.remove();
                     }, 8000);
                 }
             },
