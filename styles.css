@@ -178,16 +178,38 @@ body {
     box-shadow: 0 0 20px var(--neon-blue);
 }
 
-/* Logo sizing */
-.logo {
-    margin-bottom: 2rem;
-    max-width: 300px;
-    width: 100%;
+/* Title styling */
+.title {
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
-.logo img {
-    width: 100%;
-    height: auto;
+.title h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--neon-purple);
+    text-shadow: 
+        0 0 10px var(--neon-purple),
+        0 0 20px var(--neon-purple),
+        0 0 30px var(--neon-purple);
+    letter-spacing: 4px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 
+            0 0 10px var(--neon-purple),
+            0 0 20px var(--neon-purple),
+            0 0 30px var(--neon-purple);
+    }
+    to {
+        text-shadow: 
+            0 0 20px var(--neon-purple),
+            0 0 30px var(--neon-purple),
+            0 0 40px var(--neon-purple),
+            0 0 50px var(--neon-purple);
+    }
 }
 
 /* Drink images */
