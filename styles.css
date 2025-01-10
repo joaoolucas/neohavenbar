@@ -1,7 +1,7 @@
 :root {
-    --neon-blue: #00f3ff;
-    --neon-purple: #ff00ff;
-    --neon-green: #39ff14;
+    --neon-primary: #39ff14;    /* Bright green */
+    --neon-secondary: #00ff95;  /* Cyan-green */
+    --neon-accent: #b2ff59;     /* Light green */
     --background: #0a0a0f;
 }
 
@@ -57,17 +57,17 @@ body {
 }
 
 .menu-item {
-    color: var(--neon-blue);
+    color: var(--neon-secondary);
     font-size: 1.5rem;
     cursor: pointer;
-    text-shadow: 0 0 10px var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-secondary);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .menu-item:hover {
-    color: var(--neon-purple);
-    text-shadow: 0 0 20px var(--neon-purple);
+    color: var(--neon-primary);
+    text-shadow: 0 0 20px var(--neon-primary);
     transform: scale(1.1);
 }
 
@@ -78,8 +78,8 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--neon-blue);
-    box-shadow: 0 0 10px var(--neon-blue);
+    background: var(--neon-secondary);
+    box-shadow: 0 0 10px var(--neon-secondary);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -116,8 +116,8 @@ body {
     position: relative;
     max-width: 200px;
     backdrop-filter: blur(5px);
-    border: 1px solid var(--neon-green);
-    box-shadow: 0 0 10px var(--neon-green);
+    border: 1px solid var(--neon-accent);
+    box-shadow: 0 0 10px var(--neon-accent);
 }
 
 .speech-bubble::before {
@@ -127,7 +127,7 @@ body {
     top: 20px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent var(--neon-green) transparent transparent;
+    border-color: transparent var(--neon-accent) transparent transparent;
 }
 
 .section {
@@ -140,8 +140,8 @@ body {
 }
 
 .neon-text {
-    color: var(--neon-purple);
-    text-shadow: 0 0 10px var(--neon-purple);
+    color: var(--neon-primary);
+    text-shadow: 0 0 10px var(--neon-primary);
     margin-bottom: 2rem;
 }
 
@@ -168,14 +168,14 @@ body {
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 5px;
-    border: 1px solid var(--neon-blue);
-    box-shadow: 0 0 10px var(--neon-blue);
+    border: 1px solid var(--neon-secondary);
+    box-shadow: 0 0 10px var(--neon-secondary);
     transition: all 0.3s ease;
 }
 
 .drink-item:hover, .track:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-primary);
 }
 
 /* Title styling */
@@ -187,11 +187,11 @@ body {
 .title h1 {
     font-size: 4.5rem;
     font-weight: 700;
-    color: var(--neon-purple);
+    color: var(--neon-primary);
     text-shadow: 
-        0 0 10px var(--neon-purple),
-        0 0 20px var(--neon-purple),
-        0 0 30px var(--neon-purple);
+        0 0 10px var(--neon-primary),
+        0 0 20px var(--neon-primary),
+        0 0 30px var(--neon-primary);
     letter-spacing: 4px;
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
@@ -199,16 +199,16 @@ body {
 @keyframes titleGlow {
     from {
         text-shadow: 
-            0 0 10px var(--neon-purple),
-            0 0 20px var(--neon-purple),
-            0 0 30px var(--neon-purple);
+            0 0 10px var(--neon-primary),
+            0 0 20px var(--neon-primary),
+            0 0 30px var(--neon-primary);
     }
     to {
         text-shadow: 
-            0 0 20px var(--neon-purple),
-            0 0 30px var(--neon-purple),
-            0 0 40px var(--neon-purple),
-            0 0 50px var(--neon-purple);
+            0 0 20px var(--neon-primary),
+            0 0 30px var(--neon-primary),
+            0 0 40px var(--neon-primary),
+            0 0 50px var(--neon-primary);
     }
 }
 
@@ -226,8 +226,8 @@ body {
     height: 120px;
     object-fit: cover;
     border-radius: 10px;
-    border: 1px solid var(--neon-blue);
-    box-shadow: 0 0 10px var(--neon-blue);
+    border: 1px solid var(--neon-secondary);
+    box-shadow: 0 0 10px var(--neon-secondary);
 }
 
 .drink-info {
@@ -237,7 +237,7 @@ body {
 
 /* Order button styles */
 .order-btn {
-    background: var(--neon-blue);
+    background: var(--neon-secondary);
     color: var(--background);
     border: none;
     padding: 0.5rem 1rem;
@@ -249,9 +249,9 @@ body {
 }
 
 .order-btn:hover {
-    background: var(--neon-purple);
+    background: var(--neon-primary);
     transform: translateY(-2px);
-    box-shadow: 0 0 15px var(--neon-purple);
+    box-shadow: 0 0 15px var(--neon-primary);
 }
 
 .order-btn:disabled {
@@ -260,7 +260,7 @@ body {
 }
 
 .order-btn.ordered {
-    background: var(--neon-green);
+    background: var(--neon-accent);
 }
 
 /* Drug menu styles */
@@ -278,7 +278,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid var(--neon-purple);
+    border: 1px solid var(--neon-primary);
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
     transition: all 0.3s ease;
 }
@@ -293,7 +293,7 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    border: 2px solid var(--neon-purple);
+    border: 2px solid var(--neon-primary);
 }
 
 .drug-info {
@@ -302,17 +302,17 @@ body {
 }
 
 .drug-info h3 {
-    color: var(--neon-purple);
+    color: var(--neon-primary);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-primary);
 }
 
 .duration {
-    color: var(--neon-blue);
+    color: var(--neon-secondary);
     font-size: 0.9rem;
     margin: 0.5rem 0;
-    text-shadow: 0 0 5px var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-secondary);
 }
 
 /* Social Media Icons */
@@ -333,8 +333,8 @@ body {
     justify-content: center;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--neon-blue);
-    color: var(--neon-blue);
+    border: 2px solid var(--neon-secondary);
+    color: var(--neon-secondary);
     text-decoration: none;
     font-size: 1.5rem;
     transition: all 0.3s ease;
@@ -343,9 +343,9 @@ body {
 
 .social-icon:hover {
     transform: translateY(-5px);
-    border-color: var(--neon-purple);
-    color: var(--neon-purple);
-    box-shadow: 0 0 15px var(--neon-purple);
+    border-color: var(--neon-primary);
+    color: var(--neon-primary);
+    box-shadow: 0 0 15px var(--neon-primary);
 }
 
 .social-icon.twitter:hover {
@@ -359,9 +359,9 @@ body {
 }
 
 .social-icon.pumpfun:hover {
-    border-color: var(--neon-green);
-    color: var(--neon-green);
-    box-shadow: 0 0 15px var(--neon-green);
+    border-color: var(--neon-accent);
+    color: var(--neon-accent);
+    box-shadow: 0 0 15px var(--neon-accent);
 }
 
 /* Effect Overlays */
